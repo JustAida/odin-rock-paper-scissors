@@ -46,49 +46,45 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// Create a function that will loop the game 5 times and keep scores.
-function game() {
-  for (let i = 0; i < 5; i++) {
-    
-    // Get the player input.
-    let checkInput = true;
-    let playerSelection;
-
-    // Check validity of the user input and will loop until the input is valid.
-    while (checkInput) {
-      playerSelection = prompt('Rock, Paper, or Scissors?');
-      if (
-        playerSelection.toUpperCase() === ROCK || 
-        playerSelection.toUpperCase() === PAPER ||
-        playerSelection.toUpperCase() === SCISSORS
-        ) {
-          checkInput = false;
-        } else {
-          alert('Type only "Rock", "Paper", or "Scissors"');
-        }
+// Display scores.
+const scores = document.querySelectorAll('#scores div');
+function displayScores(scores) {
+  scores.forEach(score => {
+    if (score.classList.value === 'player-scores') {
+      score.textContent = `Player scores: ${playerScores}`;
+    } else {
+      score.textContent = `Computer scores: ${computerScores}`;
     }
+  });
+}
+displayScores(scores);
 
-    // Get the computer input.
-    const computerSelection = computerPlay();
-
-    // Declare the winner and current scores of each round.
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(`Player scores: ${playerScores}\nComputer scores: ${computerScores}`);
-  }
-
-  // Declare the winner at the end of the game.
-  if (playerScores > computerScores) {
-    console.log('You win!');
-
-  } else if (playerScores < computerScores) {
-    console.log('You lose!');
-
-  } else {
-    console.log('It\'s a tie!');
-  }
-  playerScores = 0;
-  computerScores = 0;
+// Check winner.
+function checkWinner(playerScores, computerScores) {
+  if (playerScores === 5) return "The player wins!";
+  else if (computerScores === 5) return "The player loses!";
+  else return "";
 }
 
-// Run the game.
-game()
+const body = document.querySelector('body');
+const div = document.createElement('div');
+const buttonsContainer = document.querySelector('#buttons-container')
+
+const buttons = document.querySelectorAll('button');
+// Initiate the game.
+buttons.forEach(button => {
+  button.addEventListener('click', e => {
+    div.textContent = playRound(e.target.textContent, computerPlay());
+    displayScores(scores);
+    winner = checkWinner(playerScores, computerScores);
+    if (winner) {
+      div.textContent = winner;
+      displayScores(scores);
+      playerScores = 0;
+      computerScores = 0;
+    };
+  })
+})
+
+body.insertBefore(div, buttonsContainer);
+
