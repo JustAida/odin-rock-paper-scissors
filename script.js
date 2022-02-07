@@ -69,17 +69,23 @@ function checkWinner(playerScores, computerScores) {
 const body = document.querySelector('body');
 const div = document.createElement('div');
 const buttonsContainer = document.querySelector('#buttons-container')
+const computerDisplay = document.querySelector('#computer-selection')
 
 const buttons = document.querySelectorAll('button');
 // Initiate the game.
 buttons.forEach(button => {
   button.addEventListener('click', e => {
-    div.textContent = playRound(e.target.textContent, computerPlay());
+    
+    // Display computer selection.
+    const computerSelection = computerPlay();
+    computerDisplay.textContent = "Computer chooses: " + computerSelection.charAt(0).toUpperCase() + 
+        computerSelection.slice(1).toLowerCase()
+    
+    div.textContent = playRound(e.target.classList.value, computerSelection);
     displayScores(scores);
     winner = checkWinner(playerScores, computerScores);
     if (winner) {
       div.textContent = winner;
-      displayScores(scores);
       playerScores = 0;
       computerScores = 0;
     };
