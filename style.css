@@ -38,6 +38,7 @@ button {
   justify-content: center;
   align-items: center;
   padding: 30px 60px;
+  gap: 100px;
 }
 
 #buttons-container {
@@ -50,11 +51,12 @@ button {
 #scores {
   display:flex;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 35px;
 }
 
 div.result{
   text-align: center;
   font-weight: 700;
   font-size: 50px;
+  height: 50px;
 }
