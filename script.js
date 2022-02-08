@@ -67,9 +67,25 @@ function checkWinner(playerScores, computerScores) {
 }
 
 const body = document.querySelector('body');
+const content = document.querySelector('#content');
 const div = document.createElement('div');
-const buttonsContainer = document.querySelector('#buttons-container')
-const computerDisplay = document.querySelector('#computer-selection')
+const buttonsContainer = document.querySelector('#buttons-container');
+const computerDisplay = document.querySelector('#computer-selection');
+const computerImage = document.createElement('img');
+
+
+function displayComputerSelection(computerSelection) {
+  if (computerSelection === ROCK) {
+    computerImage.setAttribute('src', './images/rock.png');
+    computerImage.setAttribute('alt', 'rock');
+  } else if (computerSelection === PAPER) {
+    computerImage.setAttribute('src', './images/paper.png');
+    computerImage.setAttribute('alt', 'paper');
+  } else if (computerSelection === SCISSORS) {
+    computerImage.setAttribute('src', './images/scissors.png');
+    computerImage.setAttribute('alt', 'scissors');
+  }
+}
 
 const buttons = document.querySelectorAll('button');
 // Initiate the game.
@@ -78,12 +94,14 @@ buttons.forEach(button => {
     
     // Display computer selection.
     const computerSelection = computerPlay();
-    computerDisplay.textContent = "Computer chooses: " + computerSelection.charAt(0).toUpperCase() + 
-        computerSelection.slice(1).toLowerCase()
+    displayComputerSelection(computerSelection);
+    computerImage.setAttribute('class', 'computer-image');
     
+    // The result of the each round.
     div.textContent = playRound(e.target.classList.value, computerSelection);
     displayScores(scores);
     winner = checkWinner(playerScores, computerScores);
+    
     if (winner) {
       div.textContent = winner;
       playerScores = 0;
@@ -92,5 +110,6 @@ buttons.forEach(button => {
   })
 })
 
-body.insertBefore(div, buttonsContainer);
+body.insertBefore(div, content);
+computerDisplay.appendChild(computerImage);
 
