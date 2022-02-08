@@ -1,4 +1,39 @@
-img {
-  width: 250px;
-  height: 250px;
+.computer-image {
+  width: 300px;
+  height: 300px;
+}
+
+.rock,
+.paper,
+.scissors {
+  width: 150px;
+  height: 150px;
+}
+
+.vs {
+  width: 50px;
+  height: 50px;
+}
+
+#content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#scores {
+  display:flex;
+  justify-content: space-between;
+}
+
+div {
+  text-align: center;
+  font-weight: 700;
+  font-size: 25px;
 }
