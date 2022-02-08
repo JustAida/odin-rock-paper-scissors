@@ -61,14 +61,15 @@ displayScores(scores);
 
 // Check winner.
 function checkWinner(playerScores, computerScores) {
-  if (playerScores === 5) return "The player wins!";
-  else if (computerScores === 5) return "The player loses!";
+  if (playerScores === 5) return "You win!";
+  else if (computerScores === 5) return "You lose!";
   else return "";
 }
 
 const body = document.querySelector('body');
 const content = document.querySelector('#content');
 const div = document.createElement('div');
+div.setAttribute('class', 'result')
 const buttonsContainer = document.querySelector('#buttons-container');
 const computerDisplay = document.querySelector('#computer-selection');
 const computerImage = document.createElement('img');
@@ -101,7 +102,7 @@ buttons.forEach(button => {
     div.textContent = playRound(e.target.classList.value, computerSelection);
     displayScores(scores);
     winner = checkWinner(playerScores, computerScores);
-    
+
     if (winner) {
       div.textContent = winner;
       playerScores = 0;
@@ -112,4 +113,3 @@ buttons.forEach(button => {
 
 body.insertBefore(div, content);
 computerDisplay.appendChild(computerImage);
-
