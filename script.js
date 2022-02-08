@@ -19,30 +19,30 @@ function playRound(playerSelection, computerSelection) {
   // Decide the winner and return the message.
   if (playerSelection === ROCK && computerSelection === PAPER) {
     computerScores += 1;
-    return 'You lose! Paper beats Rock';
+    return 'You LOSE! Paper beats Rock';
 
   } else if (playerSelection === ROCK && computerSelection === SCISSORS) {
     playerScores += 1;
-    return 'You win! Rock beats Scissors';
+    return 'You WIN! Rock beats Scissors';
 
   } else if (playerSelection === PAPER && computerSelection === ROCK) {
     playerScores += 1;
-    return 'You win! Paper beats Rock';
+    return 'You WIN! Paper beats Rock';
 
   } else if (playerSelection === PAPER && computerSelection === SCISSORS) {
     computerScores += 1;
-    return 'You lose! Scissors beat Paper';
+    return 'You LOSE! Scissors beat Paper';
 
   } else if (playerSelection === SCISSORS && computerSelection === ROCK) {
     computerScores += 1;
-    return 'You lose! Rock beats Scissors';
+    return 'You LOSE! Rock beats Scissors';
 
   } else if (playerSelection === SCISSORS && computerSelection === PAPER) {
     playerScores += 1;
-    return 'You win! Scissors beat Paper';
+    return 'You WIN! Scissors beat Paper';
 
   } else {
-    return 'It\'s a tie!';
+    return 'It\'s a TIE!';
   }
 }
 
@@ -61,8 +61,8 @@ displayScores(scores);
 
 // Check winner.
 function checkWinner(playerScores, computerScores) {
-  if (playerScores === 5) return "You win!";
-  else if (computerScores === 5) return "You lose!";
+  if (playerScores === 5) return "You WIN!";
+  else if (computerScores === 5) return "You LOSE!";
   else return "";
 }
 
