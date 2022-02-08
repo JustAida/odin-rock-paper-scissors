@@ -4,7 +4,7 @@ This project will demonstrate what I have learned:
 1. How to assign variables.
 2. How to declare functions.
 3. How to invoke the functions.
-4. How to ask user for the input.
+4. How to get the input from the user.
 5. How to use conditional statements [if, else if, else].
-
-Note: This project can only see the result in the console as of now.
+6. How to DOM method to manipulate DOM.
+7. How to use event listener.
