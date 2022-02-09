@@ -13,6 +13,7 @@ body {
 #computer-selection {
   width: 150px;
   padding: 25px;
+  padding-left: 0;
   margin-left: auto;
 }
 
@@ -27,7 +28,7 @@ body {
 button {
   background-color: pink;
   border-radius: 50%;
-  padding: 35px;
+  padding: 25px;
 }
 
 .vs {
@@ -40,6 +41,7 @@ button {
   justify-content: center;
   align-items: center;
   padding: 30px 60px;
+  padding-bottom: 0;
   gap: 20px;
   flex: 1;
 }
@@ -54,9 +56,10 @@ button {
 #scores {
   display: flex;
   justify-content: space-between;
-  font-size: 35px;
+  font-size: 25px;
   margin: 25px;
-  flex: 1;
+  margin-top: 0;
+  flex: 1 0 auto;
   align-items: flex-end;
 }
 
