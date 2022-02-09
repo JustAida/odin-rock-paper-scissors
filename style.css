@@ -1,15 +1,17 @@
 body {
   background-color: pink;
-  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .computer-image {
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
 }
 
 #computer-selection {
-  width: 300px;
+  width: 150px;
   padding: 25px;
   margin-left: auto;
 }
@@ -17,8 +19,8 @@ body {
 .rock,
 .paper,
 .scissors {
-  width: 150px;
-  height: 150px;
+  width: 75px;
+  height: 75px;
   padding: 10px;
 }
 
@@ -29,8 +31,8 @@ button {
 }
 
 .vs {
-  width: 150px;
-  height: 150px;
+  width: 75px;
+  height: 75px;
 }
 
 #content {
@@ -38,7 +40,8 @@ button {
   justify-content: center;
   align-items: center;
   padding: 30px 60px;
-  gap: 100px;
+  gap: 20px;
+  flex: 1;
 }
 
 #buttons-container {
@@ -49,14 +52,20 @@ button {
 }
 
 #scores {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   font-size: 35px;
+  margin: 25px;
+  flex: 1;
+  align-items: flex-end;
 }
 
 div.result{
   text-align: center;
   font-weight: 700;
-  font-size: 50px;
-  height: 50px;
+  font-size: 35px;
+  height: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
